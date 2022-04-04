@@ -1,7 +1,0 @@
-# Configuration file for the nRFsofle keyboard
-# Check this keyboard at https://github.com/classOpenGL/SofleKeyboard/tree/master/nRFsofle
-
-keyboard:
-  model: nrfsofle      # Check all available models at src/models
-  micro: nice_nano     # Check all available models at src/micros
- 

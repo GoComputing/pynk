@@ -1,5 +1,8 @@
 {
     "model": "nrfsofle",
-    "micro": "nice_nano"
+    "micro": "nice_nano",
+    "device_info": {
+        "connection": "usb"
+    }
 }
  

@@ -1,5 +1,6 @@
 import board
 
+
 def get_keyboard_pins(microcontroller_name, selected_part):
     """
     Return two lists. 

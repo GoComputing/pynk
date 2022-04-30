@@ -2,7 +2,7 @@
     "model": "nrfsofle",
     "micro": "nice_nano",
     "selected_part": "left",
-    "parts": [
+    "parts": {
         "left": {
             "rol": "master",
             "connection_type": "usb"
@@ -11,5 +11,7 @@
             "rol": "slave",
             "connection_type": "uart"
         }
-    ]
+    },
+    "pc_layout" : "dvorak-es",
+    "layout": "qwerty"
 }

@@ -21,13 +21,13 @@ class HID:
     def is_connected(self):
         pass
     
-    def send(self, *keys):
+    def send(self, keys):
         self.hid.send(*keys)
     
-    def press(self, *keys):
+    def press(self, keys):
         self.hid.press(*keys)
     
-    def release(self, *keys):
+    def release(self, keys):
         self.hid.release(*keys)
     
     def release_all(self):

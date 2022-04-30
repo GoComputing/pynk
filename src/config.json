@@ -11,5 +11,7 @@
             "rol": "slave",
             "connection_type": "uart"
         }
-    }
+    },
+    "pc_layout" : "dvorak-es",
+    "layout": "qwerty"
 }

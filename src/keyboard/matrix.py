@@ -29,20 +29,19 @@ class Matrix:
     
     def __init__(self, keyboard_model, microcontroller_name, selected_part):
         
-        # Get the library that manages a certain keyboard (keyboard_handler)
-        try:
-            module = __import__('models.'+keyboard_model)
-            keyboard_handler = getattr(module, keyboard_model)
-        except:
-            raise ValueError('Keyboard not found ({})'.format(keyboard_model))
+        self.keyboard_model = keyboard_model
+        self.microcontroller_name = microcontroller_name
+        self.selected_part = selected_part
         
         # Get pin numbers (and so the number of rows and columns)
-        self.row_pins, self.col_pins = keyboard_handler.pins.get_keyboard_pins(microcontroller_name, selected_part)
+        self.row_pins, self.col_pins = keyboard_model.pins.get_keyboard_pins(microcontroller_name, selected_part)
         
         # Initialize the pins
-        self.row2col = keyboard_handler.pins.is_row2col(selected_part)
+        self.row2col = self.keyboard_model.pins.is_row2col(selected_part)
         self.rows = [set_pin_as_output(pin) for pin in self.row_pins]
         self.cols = [set_pin_as_input(pin, self.row2col) for pin in self.col_pins]
+        self.nrows = len(self.rows)
+        self.ncols = len(self.cols)
         
         # Initialize state variables
         self.keys = len(self.rows) * len(self.cols)
@@ -118,7 +117,7 @@ class Matrix:
                     return n
 
     def put(self, data):
-        """Put a key event into the queue"""
+        
         self.queue[self.head] = data
         self.head += 1
         if self.head >= self.keys:
@@ -127,12 +126,20 @@ class Matrix:
 
     def get(self):
         """Remove and return the first event from the queue."""
+        
+        # Get from queue
         data = self.queue[self.tail]
         self.tail += 1
         if self.tail >= self.keys:
             self.tail = 0
         self.length -= 1
-        return data
+        
+        # Check if release
+        release = (0x80 & data) != 0
+        if release:
+            data = data & 0x7F
+        
+        return data, release
 
     def view(self, n):
         """Return the specified event"""
@@ -153,7 +160,7 @@ class Matrix:
     def get_keyup_time(self, key):
         """Return the key released time"""
         return self.t1[key]
-
+    
     def time(self):
         """Return current time"""
         return time.monotonic_ns()

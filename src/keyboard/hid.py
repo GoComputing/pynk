@@ -9,7 +9,7 @@ class HID:
          * ble (master) [TODO]
         """
         
-        conn_type = device_info['connection']
+        conn_type = device_info['connection_type']
         
         if conn_type == 'usb':
             import usb_hid

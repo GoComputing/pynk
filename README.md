@@ -14,5 +14,5 @@ frozen modules. Here is a list of the dependencies:
 
 | Name          | Tested version | URL                                               |
 |---------------|----------------|---------------------------------------------------|
-| CircuitPython | 7.2.3          | https://github.com/adafruit/circuitpython.git     |
+| CircuitPython | 7.3            | https://github.com/adafruit/circuitpython.git     |
 

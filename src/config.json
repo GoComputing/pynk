@@ -1,8 +1,15 @@
 {
     "model": "nrfsofle",
     "micro": "nice_nano",
-    "device_info": {
-        "connection": "usb"
+    "selected_part": "left",
+    "parts": {
+        "left": {
+            "rol": "master",
+            "connection_type": "usb"
+        },
+        "right": {
+            "rol": "slave",
+            "connection_type": "uart"
+        }
     }
 }
- 

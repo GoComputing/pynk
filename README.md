@@ -12,7 +12,10 @@ several microcontrollers that reads and interpret Python code.
 There are some dependencies that we recommend they to be installed as
 frozen modules. Here is a list of the dependencies:
 
-| Name          | Tested version | URL                                               |
-|---------------|----------------|---------------------------------------------------|
-| CircuitPython | 7.3            | https://github.com/adafruit/circuitpython.git     |
+| Name                       | Tested version | URL                                                        |
+|----------------------------|----------------|------------------------------------------------------------|
+| CircuitPython              | 7.3            | https://github.com/adafruit/circuitpython.git              |
+| Adafruit CircuitPython HID | 5.2.2          | https://github.com/adafruit/Adafruit_CircuitPython_HID.git |
+| Adafruit CircuitPython BLE | 8.2.1          | https://github.com/adafruit/Adafruit_CircuitPython_BLE.git |
+
 

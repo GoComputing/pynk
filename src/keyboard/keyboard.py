@@ -39,7 +39,7 @@ class Keyboard:
         self.rol = self.part_cfg['rol']
         
         # Create handlers
-        self.hid = hid.HID(self.part_cfg)
+        self.hid = hid.get_hid(self.part_cfg)
         self.model = load_keyboard_model(self.name)
         self.matrix = matrix.Matrix(self.model, self.micro, self.selected_part)
         
@@ -50,6 +50,30 @@ class Keyboard:
             self.layout = load_layout(self.layout_name, self.pc_layout_name, self.model)
             self.layer_0 = False
             self.layer_1 = False
+            
+            # Find the slave part (if any)
+            slave_part = None
+            slave_name = None
+            for part_name, part_cfg in cfg['parts'].items():
+                if part_cfg['rol'] == 'slave':
+                    slave_part = part_cfg
+                    slave_name = part_name
+                    break
+            self.slave_name = None
+            if slave_name is not None:
+                self.slave_part = {
+                    'name' : slave_name,
+                    'cfg' : slave_part
+                }
+    
+    
+    def start(self):
+        
+        self.hid.start()
+        self.receiver = None
+        if self.rol == 'master' and self.slave_part is not None:
+            self.receiver = hid.get_receiver(self.slave_part['name'], self.slave_part['cfg'])
+            self.receiver.start()
     
     
     def __str__(self):
@@ -72,8 +96,10 @@ class Keyboard:
         
         # Process the events if we are the master
         if self.rol == 'master':
-            # TODO: Receive slave elements and add them to 'events'
-            # [...]
+            
+            # Receive slave elements and add them to 'events'
+            if self.receiver is not None:
+                events = events + [event for event in self.receiver.read_events()]
             
             # Transform key positions to final keycodes
             keypos2rowcol = self.model.config.keypos2rowcol
@@ -97,6 +123,8 @@ class Keyboard:
                     pass
                 else:
                     final_events.append((keycodes, release))
+        elif self.rol == 'slave':
+            final_events = [([event[0][0]], event[0][1]) for event in events]
         
         return final_events
             
@@ -107,9 +135,9 @@ class Keyboard:
         
         matrix = self.matrix
         
-        while True:
+        while self.hid.is_connected():
             
-            events = self.update_events(timeout=1000)
+            events = self.update_events(timeout=5)
             
             keypresses  = [keycodes for keycodes,release in events if not release]
             keyreleases = [keycodes for keycodes,release in events if release]
@@ -118,3 +146,5 @@ class Keyboard:
                 self.hid.press(keycodes)
             for keycodes in keyreleases:
                 self.hid.release(keycodes)
+        
+        print("Connection lost (did you call keyboard.start?)")

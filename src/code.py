@@ -25,6 +25,9 @@ def main():
     # Initialize keyboard and all its modules
     keyboard = Keyboard(cfg)
     print(keyboard)
+    
+    # Start connections and other stuff
+    keyboard.start()
 
     # Keyboard loop
     keyboard.loop()

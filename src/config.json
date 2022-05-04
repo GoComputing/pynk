@@ -9,7 +9,7 @@
         },
         "right": {
             "rol": "slave",
-            "connection_type": "uart"
+            "connection_type": "ble"
         }
     },
     "pc_layout" : "dvorak-es",

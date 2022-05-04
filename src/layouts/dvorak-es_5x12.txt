@@ -5,17 +5,43 @@ Default
  TAB    .    ,    Ñ    P    Y           F    G    C    H    L BCKS
 CAPS    A    O    E    U    I           D    R    T    N    S    ´
 LSHI    -    Q    J    K    X           B    M    W    V    Z RSHI
-LCTR LALT    <  LY0 SPAC NONE        NONE  RET  LY1    > RALT RCTR
+LCTR LALT    <  LY0 SPAC   __          __  RET  LY1    > RALT RCTR
 
 
 
 
 
 
-Layer 1
+Lower
 
    º    1    2    3    4    5           6    7    8    9    0    '
  TAB    .    ,    Ñ    P    Y           F    G    C    H    L BCKS
 CAPS    A    O    E    U    I           D    R    T    N    S    ´
 LSHI    -    Q    J    K    X           B    M    W    V    Z RSHI
-LCTR LALT    <  LY0 SPAC NONE        NONE  RET  LY1    > RALT RCTR
+LCTR LALT    <  LY0 SPAC   __          __  RET  LY1    > RALT RCTR
+
+
+
+
+
+
+Raise
+
+   º    1    2    3    4    5           6    7    8    9    0    '
+ TAB    .    ,    Ñ    P    Y           F    G    C    H    L BCKS
+CAPS    A    O    E    U    I           D    R    T    N    S    ´
+LSHI    -    Q    J    K    X           B    M    W    V    Z RSHI
+LCTR LALT    <  LY0 SPAC   __          __  RET  LY1    > RALT RCTR
+
+
+
+
+
+
+Adyacent
+
+   º    1    2    3    4    5           6    7    8    9    0    '
+ TAB    .    ,    Ñ    P    Y           F    G    C    H    L BCKS
+CAPS    A    O    E    U    I           D    R    T    N    S    ´
+LSHI    -    Q    J    K    X           B    M    W    V    Z RSHI
+LCTR LALT    <  LY0 SPAC   __          __  RET  LY1    > RALT RCTR

@@ -4,11 +4,11 @@
     "selected_part": "left",
     "parts": {
         "left": {
-            "rol": "master",
-            "connection_type": "usb"
+            "rol": "slave",
+            "connection_type": "ble"
         },
         "right": {
-            "rol": "slave",
+            "rol": "master",
             "connection_type": "ble"
         }
     },

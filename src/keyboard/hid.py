@@ -28,6 +28,64 @@ class USB_hid:
 
 
 
+class BLE_hid:
+    
+    def __init__(self, device_name):
+        
+        import adafruit_ble
+        from adafruit_ble.advertising import Advertisement
+        from adafruit_ble.advertising.standard import ProvideServicesAdvertisement
+        from adafruit_ble.services.standard.hid import HIDService
+        from adafruit_ble.services.standard.device_info import DeviceInfoService
+        
+        self.HIDService = HIDService
+        
+        self.hid_service = HIDService()
+        self.device_info = DeviceInfoService(software_revision=adafruit_ble.__version__,
+                                             manufacturer="Adafruit Industries")
+        self.advertisement = ProvideServicesAdvertisement(self.hid_service)
+        self.advertisement.appearance = 961
+        self.scan_response = Advertisement()
+        self.scan_response.complete_name = device_name
+        
+        self.ble = adafruit_ble.BLERadio()
+        self.ble.name = device_name
+    
+    def start(self):
+        
+        print("Connecting to host...")
+        
+        advertise = not self.ble.connected
+        if advertise:
+            self.ble.start_advertising(self.advertisement, self.scan_response)
+        
+        while not self.ble.connected:
+            pass
+        
+        if advertise:
+            self.ble.stop_advertising()
+        
+        print("Connected!")
+            
+        self.hid = Keyboard(self.hid_service.devices)
+    
+    def is_connected(self):
+        return self.ble.connected
+    
+    def send(self, keys):
+        self.hid.send(*keys)
+    
+    def press(self, keys):
+        self.hid.press(*keys)
+    
+    def release(self, keys):
+        self.hid.release(*keys)
+    
+    def release_all(self):
+        self.hid.release_all()
+
+
+
 
 
 
@@ -109,12 +167,12 @@ class BLE_internal:
 
 
 
-def get_hid(device_info):
+def get_hid(device_name, device_info):
     """
     Supported connection types
      * usb (master)
-     * ble (master) [TODO]
-     * ble (slave) [TODO]
+     * ble (master)
+     * ble (slave)
     """
     
     conn_type = device_info['connection_type']
@@ -127,8 +185,7 @@ def get_hid(device_info):
         hid = USB_hid()
     elif conn_type == 'ble':
         if rol == 'master':
-            # TODO
-            pass
+            hid = BLE_hid(device_name)
         elif rol == 'slave':
             hid = BLE_internal()
     else:
@@ -188,7 +245,8 @@ class BLE_receiver:
     
     def start(self):
         
-        while not self.ble.connected:
+        connected = False
+        while not connected:
             
             print("Waiting for slave part")
             
@@ -196,6 +254,7 @@ class BLE_receiver:
                 if self.UARTService not in advertisement.services:
                     continue
                 self.connection = self.ble.connect(advertisement)
+                connected = True
                 print("Connected!")
                 break
             self.ble.stop_scan()

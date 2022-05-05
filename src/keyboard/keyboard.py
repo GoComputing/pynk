@@ -39,7 +39,7 @@ class Keyboard:
         self.rol = self.part_cfg['rol']
         
         # Create handlers
-        self.hid = hid.get_hid(self.part_cfg)
+        self.hid = hid.get_hid(self.name, self.part_cfg)
         self.model = load_keyboard_model(self.name)
         self.matrix = matrix.Matrix(self.model, self.micro, self.selected_part)
         
@@ -88,6 +88,23 @@ class Keyboard:
         
         return (int(self.layer_1) << 1) | int(self.layer_0)
     
+    def process_macro(self, macro_key, release):
+        """ Macro keys are special keys that are not sent directly to the keyboard """
+        # TODO: This function may return keycodes to send to the keyboard
+        #       They should be characters as defined in the layouts that
+        #       would be translated into a list of keycodes
+        # TODO: Add a macro callback that allows the user to add their own macros
+        #       where the code can be inserted in the `code.py`
+        
+        # We ignore the macro '__'. Useful to define gaps or 'no use' keys in the layouts
+        
+        if macro_key == 'LY0':
+            self.layer_0 = not release
+        elif macro_key == 'LY1':
+            self.layer_1 = not release
+        elif macro_key != '__':
+            print("WARNING: Ignored macro '{}'".format(macro_key))
+    
     def update_events(self, timeout):
         
         # Read the events
@@ -99,6 +116,7 @@ class Keyboard:
             
             # Receive slave elements and add them to 'events'
             if self.receiver is not None:
+                # TODO: Register synchronized timestamp and order the keypresses and releases on time
                 events = events + [event for event in self.receiver.read_events()]
             
             # Transform key positions to final keycodes
@@ -118,9 +136,7 @@ class Keyboard:
                 # Normal keys are sent directly to the PC
                 # Macro keys are special keys with different functions (for example, layout selection, led control, etc)
                 if is_macro:
-                    # TODO: Update self.layer_0 and self.layer_1
-                    # [...]
-                    pass
+                    self.process_macro(keycodes, release)
                 else:
                     final_events.append((keycodes, release))
         elif self.rol == 'slave':

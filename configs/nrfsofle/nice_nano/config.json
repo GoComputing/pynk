@@ -4,14 +4,14 @@
     "selected_part": "left",
     "parts": {
         "left": {
-            "rol": "master",
-            "connection_type": "usb"
+            "rol": "slave",
+            "connection_type": "ble"
         },
         "right": {
-            "rol": "slave",
-            "connection_type": "uart"
+            "rol": "master",
+            "connection_type": "ble"
         }
     },
     "pc_layout" : "dvorak-es",
-    "layout": "qwerty"
+    "layout": "qwerty-es"
 }

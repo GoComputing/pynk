@@ -96,13 +96,15 @@ class Keyboard:
         # TODO: Add a macro callback that allows the user to add their own macros
         #       where the code can be inserted in the `code.py`
         
-        # We ignore the macro '__'. Useful to define gaps or 'no use' keys in the layouts
+        # We ignore the macro '__' and '##'. Useful to define gaps or 'no use' keys in the layouts
+        # '__' should be used when we want to disable the behaviour of that key
+        # '##' should be used if that key doesn't exists on the physical keyboard
         
         if macro_key == 'LY0':
             self.layer_0 = not release
         elif macro_key == 'LY1':
             self.layer_1 = not release
-        elif macro_key != '__':
+        elif macro_key != '__' and macro_key != '##':
             print("WARNING: Ignored macro '{}'".format(macro_key))
     
     def update_events(self, timeout):

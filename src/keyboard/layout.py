@@ -70,6 +70,10 @@ class Layout:
     
     def get_keycode(self, row, col, current_layer):
         
+        # TODO: Keep pressed keycodes so the release is not affected by the layer selection
+        # Ej: K key is pressed. Then the user change the layer. Then the user release K key
+        # The release keycode would not be the same as the pressed keycode
+        
         key = self.layers[self.layers_order[current_layer]][row][col]
         keycodes = key[0]
         is_macro = key[1]

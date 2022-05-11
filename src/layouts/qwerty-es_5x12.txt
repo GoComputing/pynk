@@ -1,21 +1,47 @@
 
 Default
 
-   º    1    2    3    4    5           6    7    8    9    0    '
- TAB    Q    W    E    R    T           Y    U    I    O    P BCKS
-CAPS    A    S    D    F    G           H    J    K    L    Ñ    ´
-LSHI    Z    X    C    V    B           N    M    ,    .    - RSHI
-LCTR LALT    <  LY0 SPAC NONE        NONE  RET  LY1    > RALT RCTR
+  __    1    2    3    4    5           6    7    8    9    0   __
+ TAB    Q    W    E    R    T           Y    U    I    O    P  DEL
+LSHI    A    S    D    F    G           H    J    K    L    Ñ BCKS
+ ESC    Z    X    C    V    B           N    M    ,    .    -   __
+LCTR LALT  GUI  LY0 SPAC   ##          ##  RET  LY1 RALT   __   __
 
 
 
 
 
 
-Layer 1
+Lower
 
-   º    1    2    3    4    5           6    7    8    9    0    '
- TAB    Q    W    E    R    T           Y    U    I    O    P BCKS
-CAPS    A    S    D    F    G           H    J    K    L    Ñ    ´
-LSHI    Z    X    C    V    B           N    M    ,    .    - RSHI
-LCTR LALT    <  LY0 SPAC NONE        NONE  RET  LY1    > RALT RCTR
+  __   __   __   __   __   __          __   __   __   __   __   __
+  __    1    2    3    4    5           6    7    8    9    0  DEL
+  __   __ HOME PGUP PGDW  END        RIGH DOWN   UP LEFT   __ BCKS
+  __   __   __   __   __   __          __   __   __   __   __   __
+  __   __   __  LY0 SPAC   ##          ##  RET  LY1   __   __   __
+
+
+
+
+
+
+Raise
+
+  F1   F2   F3   F4   F5   F6          F7   F8   F9  F10  F11  F12
+  __    !    "    #    $    %           &    /    (    )    \  DEL
+  __   __   __   __   __   __          __    =    [    ]    | BCKS
+  __   __   __   __   __   __          __    +    <    >    ¡   __
+  __   __   __  LY0 SPAC   ##          ##  RET  LY1   __   __   __
+
+
+
+
+
+
+Adjacent
+
+  __   __   __   __   __   __          __   __   __   __   __   __
+  __  L_T   __   __   __   __          __   __   __   __   __  DEL
+  __ L_HI L_SI L_VI   __   __          __   __   __   __   __ BCKS
+  __ L_HD L_SI L_VI   __   __          __   __   __   __   __   __
+  __   __   __  LY0 SPAC   ##          ##  RET  LY1   __   __   __

@@ -47,11 +47,10 @@ Right now, PYNK firmware supports the following keyboards:
 | `Sofle <https://github.com/GoComputing/SofleKeyboard>`_       | nRFsofle     | Under development   |
 +---------------------------------------------------------------+--------------+---------------------+
 
-If you find your keyboard in the below list, you can make use of the configuration file from the
+If you find your keyboard in the above list, you can make use of the configuration file from the
 `configs` folder, so it would even easier to setup your keyboard. If you cannot find your keyboard,
 consider contributing to this firmware adding support to your keyboard. To do so, refer to
 :ref:`add-keyboard`.
-
 
 
 Full table of contents
@@ -62,9 +61,20 @@ Full table of contents
    :caption: PYNK usage
    
    usage/quickstart
+   usage/configuration_file
+   usage/define_layout
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Firmware in-depth
+   
+   firmware/host_layout
+   firmware/communication_protocol
+   firmware/source_code_docs
 
 .. toctree::
    :maxdepth: 2
    :caption: Contributing
    
    extending/add_keyboard
+   extending/suggestions

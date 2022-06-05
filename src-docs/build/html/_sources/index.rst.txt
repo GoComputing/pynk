@@ -6,6 +6,8 @@
 Welcome to PYNK's documentation!
 ================================
 
+.. image:: images/PYNK_Logo_text.png
+
 Welcome to the documentation of the PYNK keyboard firmware. Here you will find how to use the
 firmware in a variety of keyboards. You can also learn how the firmware works. If you find this
 firmware useful, please consider to contribute to it adding support to new keyboards or extending

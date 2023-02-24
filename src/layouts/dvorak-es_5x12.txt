@@ -4,8 +4,8 @@ Default
   __    1    2    3    4    5           6    7    8    9    0   __
  TAB    .    ,    Ñ    P    Y           F    G    C    H    L  DEL
 LSHI    A    O    E    U    I           D    R    T    N    S BCKS
- ESC    -    Q    J    K    X           B    M    W    V    Z   __
-LCTR LALT  GUI  LY0 SPAC   ##          ##  RET  LY1 RALT   __   __
+ ESC    -    Q    J    K    X           B    M    W    V    Z    ´
+  __  GUI LCTR SPAC  LY0   ##          ##  LY1  RET LALT   __   __
 
 
 
@@ -15,10 +15,10 @@ LCTR LALT  GUI  LY0 SPAC   ##          ##  RET  LY1 RALT   __   __
 Lower
 
   __   __   __   __   __   __          __   __   __   __   __   __
-  __    1    2    3    4    5           6    7    8    9    0  DEL
-  __   __ HOME PGUP PGDW  END        RIGH DOWN   UP LEFT   __ BCKS
-  __   __   __   __   __   __          __   __   __   __   __   __
-  __   __   __  LY0 SPAC   ##          ##  RET  LY1   __   __   __
+ TAB    1    2    3    4    5           6    7    8    9    0  DEL
+LSHI    &    <    [    ]    $           /    (    )    >    ' BCKS
+ ESC    @    "    {    }   ##           \    ¿    ?    ´    ¨    ´
+  __  GUI LCTR SPAC  LY0   ##          ##  LY1  RET LALT   __   __
 
 
 
@@ -27,11 +27,11 @@ Lower
 
 Raise
 
-  F1   F2   F3   F4   F5   F6          F7   F8   F9  F10  F11  F12
-  __    !    "    #    $    %           &    /    (    )    \  DEL
-  __   __   __   __   __   __          __    =    [    ]    | BCKS
-  __   __   __   __   __   __          __    +    <    >    ¡   __
-  __   __   __  LY0 SPAC   ##          ##  RET  LY1   __   __   __
+  __   __   __   __   __   __          __   __   __   __   __   __
+ TAB    ~   ##  DEL    %   ##        PRNT   ##   UP   ##   ##  DEL
+LSHI   ##    /    -    +    *          ## LEFT DOWN RIGH   ## BCKS
+ ESC   ##   ##   ##    #   ##          ##    ¡    !   ##   ##    ´
+  __  GUI LCTR SPAC  LY0   ##          ##  LY1  RET LALT   __   __
 
 
 
@@ -40,8 +40,21 @@ Raise
 
 Adjacent
 
+  F1   F2   F3   F4   F5   F6          F7   F8   F9  F10  F11  F12
+ TAB    !    "    #    $    %           &    /    (    )    \  DEL
+LSHI   __   __   __   __   __          __    =    [    ]    | BCKS
+ ESC   __   __   __   __   __          __    +    <    >    ¡    ´
+  __  GUI LCTR SPAC  LY0   ##          ##  LY1  RET LALT   __   __
+
+
+
+
+
+
+Extra
+
   __   __   __   __   __   __          __   __   __   __   __   __
   __  L_T   __   __   __   __          __   __   __   __   __  DEL
   __ L_HI L_SI L_VI   __   __          __   __   __   __   __ BCKS
   __ L_HD L_SI L_VI   __   __          __   __   __   __   __   __
-  __   __   __  LY0 SPAC   ##          ##  RET  LY1   __   __   __
+  __  GUI LCTR SPAC  LY0   ##          ##  LY1  RET LALT   __   __
